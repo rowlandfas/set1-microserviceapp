@@ -74,7 +74,7 @@ pipeline {
         stage('Update Deployment Manifest in Main Branch') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'git-cred', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_TOKEN')]) {
+                    withCredentials([usernamePassword(credentialsId: 'git-creds', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_TOKEN')]) {
                         sh """
                             cd ${APP_REPO_NAME}
                             git checkout ${MAIN_BRANCH}
