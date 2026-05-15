@@ -35,7 +35,7 @@ pipeline {
         stage('Update Deployment Manifest in Stage Branch') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'git-cred', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_TOKEN')]) {
+                    withCredentials([usernamePassword(credentialsId: 'git-creds', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_TOKEN')]) {
                         sh """
                             rm -rf ${APP_REPO_NAME} || true
                             git clone ${GIT_REPO_URL}
