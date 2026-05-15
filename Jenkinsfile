@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         APP_REPO_NAME = "set1-microserviceapp"
-        IMAGE_NAME = "franklinonyia/productcatalogservice"
+        IMAGE_NAME = "rowland/productcatalogservice"
         BUILD_TAG = "${BUILD_NUMBER}"
         DEPLOYMENT_MANIFEST = "deployment-service.yml"
         GIT_REPO_URL = "https://github.com/CloudHight/set1-microserviceapp.git"
@@ -35,12 +35,12 @@ pipeline {
         stage('Update Deployment Manifest in Stage Branch') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'git-cred', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_TOKEN')]) {
+                    withCredentials([usernamePassword(credentialsId: 'git-creds', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_TOKEN')]) {
                         sh """
                             rm -rf ${APP_REPO_NAME} || true
                             git clone ${GIT_REPO_URL}
                             cd ${APP_REPO_NAME}
-                            git config --global user.email "jenkins@set30.space"
+                            git config --global user.email "koolrosco@gmail.com"
                             git config --global user.name "Jenkins CI"
                             git checkout ${STAGE_BRANCH}
                             git pull origin ${STAGE_BRANCH} --rebase
@@ -70,12 +70,12 @@ pipeline {
         stage('Update Deployment Manifest in Main Branch') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'git-cred', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_TOKEN')]) {
+                    withCredentials([usernamePassword(credentialsId: 'git-creds', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_TOKEN')]) {
                         sh """
                             cd ${APP_REPO_NAME}
                             git checkout ${MAIN_BRANCH}
                             git pull origin ${MAIN_BRANCH} --rebase
-                            git config --global user.email "jenkins@set30.space"
+                            git config --global user.email "koolrosco@gmail.com"
                             git config --global user.name "Jenkins CI"
                             sed -i 's|image: ${IMAGE_NAME}:.*|image: ${IMAGE_NAME}:${BUILD_TAG}|' ${DEPLOYMENT_MANIFEST}
                             git add ${DEPLOYMENT_MANIFEST}
