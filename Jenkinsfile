@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         APP_REPO_NAME = "set1-microserviceapp"
-        IMAGE_NAME = "rowland/cartservice"
+        IMAGE_NAME = "rowlandfas/cartservice"
         BUILD_TAG = "${BUILD_NUMBER}"
         DEPLOYMENT_MANIFEST = "deployment-service.yml"
         GIT_REPO_URL = "https://github.com/rowlandfas/set1-microserviceapp.git"
