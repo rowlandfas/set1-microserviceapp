@@ -297,7 +297,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: rowlandfas/paymentservice:4
+        image: rowlandfas/paymentservice:2
         ports:
         - containerPort: 50051
         env:
