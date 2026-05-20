@@ -465,7 +465,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: rowlandfas/loadgenerator:4
+        image: rowlandfas/loadgenerator:2
         env:
         - name: FRONTEND_ADDR
           value: "frontend:80"
