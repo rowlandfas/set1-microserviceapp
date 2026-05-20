@@ -81,7 +81,7 @@ spec:
       serviceAccountName: default
       containers:
         - name: server
-          image: rowlandfas/checkoutservice:4
+          image: rowlandfas/checkoutservice:2
           ports:
           - containerPort: 5050
           readinessProbe:
