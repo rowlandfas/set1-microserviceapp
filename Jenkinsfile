@@ -8,7 +8,7 @@ pipeline {
         GIT_REPO_URL = "https://github.com/rowlandfas/set1-microserviceapp.git"
         STAGE_BRANCH = "stage"
         MAIN_BRANCH = "main"
-        SLACK_CHANNEL = "9th-march-2026-kops-microservice-project"
+        SLACK_CHANNEL = "29th-june-2026-sock-shop-e-commerce-project-eu-team2"
     }
     
     
