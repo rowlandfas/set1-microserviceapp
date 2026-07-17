@@ -654,7 +654,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: rowlandfas/adservice:1
+        image: rowlandfas/adservice:2
         ports:
         - containerPort: 9555
         env:
