@@ -200,7 +200,7 @@ spec:
       serviceAccountName: default
       containers:
         - name: server
-          image: rowlandfas/frontend:2
+          image: rowlandfas/frontend:1
           ports:
           - containerPort: 8080
           readinessProbe:
